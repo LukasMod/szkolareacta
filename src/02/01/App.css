@@ -1,5 +1,6 @@
-.App {
-  padding: 50px;
+body {
+  padding: 0;
   font-size: 30px;
   text-align: center;
+  background-color: #bdc3c7;
 }
