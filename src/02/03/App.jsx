@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './App.css';
 
@@ -7,30 +7,34 @@ import './App.css';
 // --- CLASS ---
 
 class App extends React.Component {
+  state = {
+    timer: 0,
+  };
 
-    state ={
-        timer: 0,
-    }
-
-    componentDidMount() {
-        const interval = setInterval( () =>
+  componentDidMount() {
+    setInterval(
+      () =>
         this.setState((prevState) => {
-            return {
-                timer: prevState.timer + 1};
-            }), 1000);
-                return() => clearInterval(interval);
-        }
+          return {
+            timer: prevState.timer + 1,
+          };
+        }),
+      1000
+    );
+  }
 
-    render() {
-        const {timer} = this.state;
+  render() {
+    const { timer } = this.state;
 
-        return (
-            <div className='App'>
-                <h2>02/02</h2>
-                <h3>TIMER</h3>
-                <span>{timer}</span>
-            </div> );
-    }};
+    return (
+      <div className='App'>
+        <h2>02/02</h2>
+        <h3>TIMER</h3>
+        <span>{timer}</span>
+      </div>
+    );
+  }
+}
 
 // --- FUNCTIONAL ---
 
