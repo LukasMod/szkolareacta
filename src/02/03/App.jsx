@@ -12,7 +12,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    setInterval(
+    this.timerRef = setInterval(
       () =>
         this.setState((prevState) => {
           return {
@@ -21,6 +21,10 @@ class App extends React.Component {
         }),
       1000
     );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerRef);
   }
 
   render() {
