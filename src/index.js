@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './02/03/App'; //CHANGE WEEK HERE
+import App from './03/01/App'; //CHANGE WEEK HERE
 
 ReactDOM.render(
   <React.StrictMode>
