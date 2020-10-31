@@ -13,12 +13,9 @@ const App = () => {
       </Button>
       <br />
       <Button
-        label='Using label. When there is no defined color in Button component color palette (undefined)'
-        bgColor='wrong color X'
-        color='wrong color Y'
+        label='when bgColor and color props are empty or undefined (label here)'
+        icon={faBolt}
       />
-      <br />
-      <Button label='when bgColor and color props are empty' icon={faBolt} />
     </div>
   );
 };
