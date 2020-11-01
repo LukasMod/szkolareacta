@@ -1,0 +1,25 @@
+// https://flatuicolors.com/palette/us
+
+export const colorsPalette = {
+  defaultBg: '#000000',
+  defaultColor: '#ff0000',
+  'light greenish blue': '#55efc4',
+  'faded poster': '#81ecec',
+  'green darner tail': '#74b9ff',
+  'shy moment': '#a29bfe',
+  'city lights': '#dfe6e9',
+  'mint leaf': '#00b894',
+  'robbins egg blue': '#00cec9',
+  'electron blue': '#0984e3',
+  'soothing breeze': '##b2bec3',
+  'sour lemon': '#ffeaa7',
+  'first date': '#fab1a0',
+  'pink glamour': '#ff7675',
+  'pico-8 pink': '#fd79a8',
+  'american river': '#636e72',
+  'bright yarrow': '#fdcb6e',
+  orangeville: '#e17055',
+  'chi-gong': '#d63031',
+  'prunus avium': '#e84393',
+  'dracula orchid': '#2d3436',
+};
