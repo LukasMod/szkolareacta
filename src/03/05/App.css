@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  font-size: 20px;
+  text-align: center;
+  height: 100vh;
+}
+
+a:hover,
+a:focus,
+a:visited {
+  color: inherit;
+}
