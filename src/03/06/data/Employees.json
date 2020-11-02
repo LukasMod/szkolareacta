@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "Ryszard",
+        "surname": "Gąskowski",
+        "birth": "02.02.1985",
+        "position": "CEO"
+    },
+    {
+        "id": 2,
+        "name": "Marta",
+        "surname": "Kowalska",
+        "birth": "04.06.2020",
+        "position": "HR specialist"
+    },
+    {
+        "id": 3,
+        "name": "Zbigniew",
+        "surname": "Stępień",
+        "birth": "10.01.1989",
+        "position": "PR specialist"
+    },
+    {
+        "id": 4,
+        "name": "Janusz",
+        "surname": "Tracz",
+        "birth": "05.04.1990",
+        "position": "physical worker"
+    }
+]

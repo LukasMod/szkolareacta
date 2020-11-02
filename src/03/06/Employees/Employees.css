@@ -1,0 +1,8 @@
+.employees-wrapper {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  border: 3px solid #636e72;
+  width: 500px;
+  min-height: 500px;
+}
