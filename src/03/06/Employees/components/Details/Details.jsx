@@ -2,7 +2,6 @@ import React from 'react';
 import './Details.css';
 
 const Details = ({ data, idSelected }) => {
-  console.log(idSelected);
   return (
     <div className='details-wrapper'>
       <h2>Employee info</h2>

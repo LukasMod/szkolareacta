@@ -10,7 +10,10 @@
   transition: 0.2s;
 }
 .list-link:hover {
+  background-color: #d8d4f9;
+  cursor: pointer;
+}
+.list-link.isActive {
   background-color: #6c5ce7;
   color: #dfe6e9;
-  cursor: pointer;
 }
