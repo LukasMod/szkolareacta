@@ -5,9 +5,8 @@ const Details = ({ data, idSelected }) => {
   return (
     <div className='details-wrapper'>
       <h2>Employee info</h2>
-      {idSelected === 0 ? (
-        <strong>Choose an employee</strong>
-      ) : (
+      {idSelected === 0 && <strong>Choose an employee</strong>}
+      {idSelected !== 0 && (
         <div>
           <p>
             <strong>Name:</strong> {data.name}
