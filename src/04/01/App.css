@@ -1,0 +1,18 @@
+.App {
+  background-color: #ecf0f1;
+  border: #95a5a6 1px solid;
+  padding: 10px;
+  text-align: center;
+}
+input,
+select,
+button {
+  font-size: 1rem;
+  padding: 5px;
+}
+label {
+  font-size: 2rem;
+}
+p {
+  font-size: 1rem;
+}

@@ -1,5 +1,9 @@
+#local settings
+settings.json
+
 #boilerplate
 /starter
+/src/sandbox
 
 # dependencies
 /node_modules
@@ -22,3 +26,4 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+public/LogoBuildBetter240x180.png
