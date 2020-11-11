@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from '04/02/App';
+import App from '04/03/App';
 // import App from 'sandbox/04/App';
 
 //change exercise in App import
@@ -22,7 +22,8 @@ import App from '04/02/App';
 // -----------
 // 4 week:
 // 04/01        -form, tip converter
-// 04/02       -form, validation
+// 04/02        -form, validation
+// 04/03        -react-hook-form
 
 ReactDOM.render(
   <React.StrictMode>
