@@ -1,0 +1,50 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0 auto 2em auto;
+  background: #dfe6e9;
+  padding: 1em 1.5em 0 1.5em;
+  border-radius: 15px;
+  border: 1px solid #6c5ce7;
+}
+h2 {
+  margin: 0 0 1rem 0;
+}
+input,
+select {
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.button-form {
+  margin-bottom: 1em;
+  width: auto;
+  padding: 0.5em;
+  font-size: 1.25rem;
+  border: none;
+  border-radius: 10px;
+  border: 1px solid #6c5ce7;
+  transition: 0.2s;
+}
+.button-form:hover {
+  width: auto;
+  background-color: #6c5ce7;
+  color: #dfe6e9;
+  border: 1px solid #6c5ce7;
+}
+
+.button-form :focus,
+.button-form :active {
+  border: none;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.radio-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}

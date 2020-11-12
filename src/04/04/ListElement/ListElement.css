@@ -1,0 +1,27 @@
+.tr-element {
+  display: flex;
+}
+
+td {
+  display: flex;
+  padding: 0.5em;
+  overflow: hidden;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.text-wrapper {
+  background-color: grey;
+  flex-basis: 50%;
+}
+.value-wrapper {
+  background-color: darkkhaki;
+  flex-basis: 20%;
+}
+.category-wrapper {
+  background-color: sandybrown;
+  flex-basis: 20%;
+}
+.delete-wrapper {
+  background-color: burlywood;
+  flex-basis: 10%;
+}

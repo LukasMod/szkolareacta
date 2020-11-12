@@ -1,0 +1,17 @@
+.container-wrapper {
+  margin: auto;
+  background: #dfe6e9;
+  padding: 1em 1.5em;
+  border-radius: 15px;
+  border: 1px solid #6c5ce7;
+  min-width: 300px;
+}
+
+.table-wrapper {
+  display: flex;
+  flex-flow: column;
+  font-size: 0.8rem;
+  border-bottom: 1px solid #d0d0d0;
+  flex: 1 1 auto;
+  word-break: break-all;
+}
