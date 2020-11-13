@@ -1,0 +1,37 @@
+[
+    {
+        "category": "others",
+        "id": "9d1da573-8ca0-47c2-9bc4-04bb508cd7e8",
+        "text": "car",
+        "type": "expenses",
+        "value": 8000
+    },
+    {
+        "category": "food",
+        "id": "642383b6-433d-451d-ac25-2775b5893f47",
+        "text": "oranges",
+        "type": "expenses",
+        "value": 13
+    },
+    {
+        "category": "study",
+        "id": "837eac2f-79d5-4b0e-8ab9-5967e1d74eed",
+        "text": "js book",
+        "type": "expenses",
+        "value": 30
+    },
+    {
+        "category": "food",
+        "id": "f80d7965-0849-41ad-9aa7-462f24948fb0",
+        "text": "fries",
+        "type": "expenses",
+        "value": 6
+    },
+    {
+        "category": "fun",
+        "id": "12da68fa-f45b-475c-910b-651af11dab61",
+        "text": "party",
+        "type": "expenses",
+        "value": 101
+    }
+]

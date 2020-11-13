@@ -1,0 +1,37 @@
+[
+    {
+        "category": "others",
+        "id": "72c85af5-a6a8-4fce-b27c-57c1f8f5ed92",
+        "text": "invoice 1",
+        "type": "incomes",
+        "value": 1000
+    },
+    {
+        "category": "others",
+        "id": "d22d4ef4-77e3-40ba-bf75-c6d5defd9b73",
+        "text": "invoice 2",
+        "type": "incomes",
+        "value": 500
+    },
+    {
+        "category": "others",
+        "id": "62639c8b-9c71-484c-a0ef-f2f12bd4e652",
+        "text": "invoice 3",
+        "type": "incomes",
+        "value": 600
+    },
+    {
+        "category": "others",
+        "id": "db342951-fe9d-4515-90dc-d1418c95465c",
+        "text": "credit",
+        "type": "incomes",
+        "value": 650
+    },
+    {
+        "category": "others",
+        "id": "f4523f2e-1660-4037-b30e-8bb85b1de7f0",
+        "text": "bonus",
+        "type": "incomes",
+        "value": 80
+    }
+]

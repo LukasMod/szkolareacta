@@ -4,24 +4,46 @@
 
 td {
   display: flex;
-  padding: 0.5em;
+  padding: 0.3em;
   overflow: hidden;
   border-bottom: 1px solid #d0d0d0;
 }
 
 .text-wrapper {
-  background-color: grey;
-  flex-basis: 50%;
+  flex-basis: 40%;
 }
 .value-wrapper {
-  background-color: darkkhaki;
   flex-basis: 20%;
 }
 .category-wrapper {
-  background-color: sandybrown;
   flex-basis: 20%;
 }
 .delete-wrapper {
-  background-color: burlywood;
   flex-basis: 10%;
+  font-size: 0.3rem;
+}
+
+button {
+  padding: 1px;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #dfe6e9;
+  border: none;
+  border-radius: 7px;
+  border: 1px solid #6c5ce7;
+  transition: 0.2s;
+  outline: none;
+  text-align: center;
+}
+button:hover {
+  background-color: #6c5ce7;
+  color: #dfe6e9;
+  border: 1px solid #6c5ce7;
+  cursor: pointer;
+}
+
+button:focus,
+button:active {
+  border: none;
+  border: 1px solid #6c5ce7;
 }

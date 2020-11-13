@@ -2,16 +2,11 @@ import React from 'react';
 import './List.css';
 import ListElement from './../ListElement/ListElement';
 
-const List = ({ data }) => {
-  console.log(data);
-
-  const handleDelete = () => {
-    console.log('handleDelete');
-  };
-
+const List = ({ data, defaultType, onDelete, totalAmount }) => {
   return (
     <div className='container-wrapper'>
-      <h2>List of Incomes</h2>
+      <h2>List of {defaultType}</h2>
+      <h3>{totalAmount}</h3>
       <table className='table-wrapper'>
         <tbody>
           {data.map((element) => {
@@ -19,7 +14,7 @@ const List = ({ data }) => {
               <ListElement
                 key={element.id}
                 data={element}
-                handleDelete={handleDelete}
+                onDelete={onDelete}
               />
             );
           })}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { v4 as uuidv4 } from 'uuid';
 
 import './Form.css';
 
@@ -7,24 +8,25 @@ const Form = ({ onFormSubmit }) => {
   const { register, handleSubmit, errors, reset } = useForm();
 
   const onSubmit = (data, e) => {
-    const id = createId();
+    const id = uuidv4();
     onFormSubmit(id, data.type, 'add', data);
     e.target.reset();
   };
 
-  const createId = () => {
-    return Math.floor(Math.random() * 10000);
-  };
+  // const createId = () => {
+  //   return Math.floor(Math.random() * 10000);
+  // };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <h2>e-wallet</h2>
+      <h3>TOTAL</h3>
       <div className='radio-wrapper'>
         <div className='income-wrapper'>
           <input
             type='radio'
             name='type'
-            value='income'
+            value='incomes'
             id='income'
             ref={register({ required: true })}
           />
