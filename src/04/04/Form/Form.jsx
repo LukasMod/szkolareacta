@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 
 import './Form.css';
 
-const Form = ({ onFormSubmit }) => {
+const Form = ({ onFormSubmit, walletTotalAmount }) => {
   const { register, handleSubmit, errors, reset } = useForm();
+
+  // const { walletStatus } = useRef();
 
   const onSubmit = (data, e) => {
     const id = uuidv4();
@@ -13,14 +15,12 @@ const Form = ({ onFormSubmit }) => {
     e.target.reset();
   };
 
-  // const createId = () => {
-  //   return Math.floor(Math.random() * 10000);
-  // };
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <h2>e-wallet</h2>
-      <h3>TOTAL</h3>
+      <h3 style={walletTotalAmount < 0 ? { color: 'red' } : { color: 'green' }}>
+        {walletTotalAmount} $
+      </h3>
       <div className='radio-wrapper'>
         <div className='income-wrapper'>
           <input
