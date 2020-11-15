@@ -13,6 +13,21 @@ const Main = () => {
   const [expensesTotalAmount, setExpensesTotalAmount] = useState(0);
   const [walletTotalAmount, setWalletTotalAmount] = useState(0);
 
+  //check if localStorage is empty and then load examples data
+  useEffect(() => {
+    if (
+      localStorage.getItem('incomes') === null ||
+      localStorage.getItem('expenses') === null
+    ) {
+      localStorage.setItem('incomes', JSON.stringify(incomesExamples));
+      localStorage.setItem('expenses', JSON.stringify(expensesExamples));
+    }
+    const localIncomeList = JSON.parse(localStorage.getItem('incomes'));
+    const localExpensesList = JSON.parse(localStorage.getItem('expenses'));
+    setIncomesList(localIncomeList);
+    setExpensesList(localExpensesList);
+  }, []);
+
   const pushOrDelete = (id, change, elementAdded, dataList) => {
     if (change === 'add') {
       elementAdded.id = id;
@@ -25,18 +40,23 @@ const Main = () => {
     return dataList;
   };
 
+  //updates amount of money on lists and localStorage data
   useEffect(() => {
     let total = 0;
     incomesList.forEach((item) => (total = total + item.value));
     setIncomesTotalAmount(total);
+    localStorage.setItem('incomes', JSON.stringify(incomesList));
   }, [incomesList]);
 
+  //updates amount of money on lists and localStorage data
   useEffect(() => {
     let total = 0;
     expensesList.forEach((item) => (total = total + item.value));
     setExpensesTotalAmount(total);
+    localStorage.setItem('expenses', JSON.stringify(expensesList));
   }, [expensesList]);
 
+  //updates amount of budget
   useEffect(() => {
     setWalletTotalAmount(incomesTotalAmount - expensesTotalAmount);
   }, [incomesTotalAmount, expensesTotalAmount]);

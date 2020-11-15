@@ -1,0 +1,13 @@
+{
+    "incomes": [
+        "invoice",
+        "bonus"
+    ],
+    "expenses": [
+        "home",
+        "food",
+        "fun",
+        "study",
+        "others"
+    ]
+}

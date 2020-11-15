@@ -1,19 +1,31 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 
+import typesExamples from './../data/typesExamples.json';
 import './Form.css';
 
 const Form = ({ onFormSubmit, walletTotalAmount }) => {
   const { register, handleSubmit, errors, reset } = useForm();
+  const [categories, setCategories] = useState([]);
 
-  // const { walletStatus } = useRef();
+  const changeCategory = (e) => {
+    setCategories(typesExamples[e.target.value]);
+  };
 
   const onSubmit = (data, e) => {
     const id = uuidv4();
     onFormSubmit(id, data.type, 'add', data);
     e.target.reset();
   };
+
+  const categoriesList = categories.map((item) => {
+    return (
+      <option key={`type-${item}`} value={item}>
+        {item}
+      </option>
+    );
+  });
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -29,6 +41,7 @@ const Form = ({ onFormSubmit, walletTotalAmount }) => {
             value='incomes'
             id='income'
             ref={register({ required: true })}
+            onChange={changeCategory}
           />
           <label htmlFor='income'>income</label>
         </div>
@@ -39,6 +52,7 @@ const Form = ({ onFormSubmit, walletTotalAmount }) => {
             value='expenses'
             id='expenses'
             ref={register({ required: true })}
+            onChange={changeCategory}
           />
           <label htmlFor='expenses'>expenses</label>
         </div>
@@ -62,13 +76,8 @@ const Form = ({ onFormSubmit, walletTotalAmount }) => {
         name='category'
         placeholder='category'
         ref={register({ required: true })}>
-        {/* <option hidden disabled selected value>
-            category
-          </option> */}
-        <option value='food'>food</option>
-        <option value='fun'>fun</option>
-        <option value='study'>study</option>
-        <option value='others'>others</option>
+        <option value='' disabled></option>
+        {categoriesList}
       </select>
       <div className='button-wrapper'>
         <input type='submit' value='add' className='button-form' />
@@ -78,9 +87,9 @@ const Form = ({ onFormSubmit, walletTotalAmount }) => {
           className='button-form'
           onClick={() => {
             reset({
-              errors: false, // errors will not be reset
-              dirtyFields: false, // dirtyFields will not be reset
-              dirty: false, // dirty will not be reset
+              errors: false,
+              dirtyFields: false,
+              dirty: false,
               isSubmitted: false,
               touched: false,
               isValid: false,
