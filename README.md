@@ -24,7 +24,8 @@ week 4:
 04/01 -form, tip converter
 04/02 -form, validation
 04/03 -react-hook-form
-04/04 -form and 2 lists - wallet, budget, json data, localStorage,
+04/04 -form and 2 lists - wallet, budget, json data, localStorage
+04/05 -forwardRef button
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
