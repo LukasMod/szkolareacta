@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from '05/01/App';
+import App from '05/02/App';
 // import App from 'sandbox/06/App';
 
 // week 1:
@@ -35,6 +35,7 @@ import App from '05/01/App';
 
 // week 5:
 // 05/01 -dialog window
+// 05/02 -snackbar
 
 ReactDOM.render(
   <React.StrictMode>

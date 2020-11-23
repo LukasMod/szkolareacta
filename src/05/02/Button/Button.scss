@@ -1,0 +1,21 @@
+.button {
+  background-color: #40407a;
+  border: 2px solid #ffda79;
+  border-radius: 5px;
+  color: #ffda79;
+  padding: 5px;
+  font-size: 1.25rem;
+  margin-left: 2em;
+  margin-bottom: 0.5em;
+  min-width: 100px;
+  transition: 0.2s;
+  &:hover {
+    cursor: pointer;
+    background-color: #ffda79;
+    border: 2px solid #706fd3;
+    color: #40407a;
+  }
+  &--solo {
+    margin: auto;
+  }
+}
