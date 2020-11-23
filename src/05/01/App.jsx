@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 
 import './App.css';
 
-import Dialog from './components/Dialog/Dialog';
-import DialogHeader from './components/Dialog/DialogHeader/DialogHeader';
-import DialogBar from './components/Dialog/DialogBar/DialogBar';
-import DialogContent from './components/Dialog/DialogContent/DialogContent';
-import DialogButtons from './components/Dialog/DialogButtons/DialogButtons';
 import Button from './components/Button/Button';
+import {
+  Dialog,
+  DialogHeader,
+  DialogBar,
+  DialogButtons,
+  DialogContent,
+} from './components/Dialog';
 
 const App = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(true);
