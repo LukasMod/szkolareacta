@@ -21,7 +21,7 @@ const icon = {
 //top-left, top-center, top-right
 //bottom-left, bottom-center, bottom-right
 
-const Snackbars = ({
+const Snackbar = ({
   activeSnackbar,
   setActiveSnackbar,
   children,
@@ -49,4 +49,4 @@ const Snackbars = ({
   );
 };
 
-export default Snackbars;
+export default Snackbar;

@@ -4,7 +4,6 @@ import './App.css';
 
 import Snackbar from './Snackbar/Snackbar';
 import Button from './Button/Button';
-import { useEffect } from 'react';
 
 const App = () => {
   const [activeSnackbar, setActiveSnackbar] = useState(false);
