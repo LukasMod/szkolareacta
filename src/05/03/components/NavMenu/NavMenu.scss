@@ -1,0 +1,46 @@
+.navMenu {
+  background-color: #f8efba;
+  min-width: 200px;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+  &__list {
+    margin-top: 5em;
+    font-size: 1rem;
+  }
+  &__item {
+    margin-top: 1em;
+    color: #40407a;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    & a {
+      display: block;
+      text-decoration: none;
+      &:hover {
+        color: #706fd3;
+        cursor: pointer;
+      }
+    }
+  }
+  &__button {
+    position: fixed;
+    top: 5%;
+    right: 10%;
+    font-size: 2rem;
+    color: #40407a;
+    &:hover {
+      color: #706fd3;
+      cursor: pointer;
+    }
+  }
+  &--open {
+    transform: translateX(0%);
+  }
+
+  &--hide {
+    transform: translateX(-100%);
+  }
+}
