@@ -1,0 +1,15 @@
+.usersContainer {
+  width: 806px;
+  margin: auto;
+  margin-top: 3em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-radius: 20px;
+  border: 3px solid #009432;
+  overflow: hidden;
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+}

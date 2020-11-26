@@ -1,0 +1,25 @@
+.usersList {
+  background: #009432;
+  color: #ffffff;
+  min-height: calc(300px - 30px);
+  min-width: 300px;
+  font-size: 1rem;
+  &__list {
+    list-style: none;
+  }
+  &__item {
+    line-height: 1.6em;
+    transition: 0.2s;
+    &:hover {
+      cursor: pointer;
+      color: #065c23;
+      background: #a3cb38;
+    }
+    &:first-child {
+      margin-top: 1em;
+    }
+    &:last-child {
+      margin-bottom: 1em;
+    }
+  }
+}
