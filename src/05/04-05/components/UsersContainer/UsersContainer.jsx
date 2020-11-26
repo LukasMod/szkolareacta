@@ -5,28 +5,33 @@ import { UsersSearch, UsersList, User } from './../';
 import './UsersContainer.scss';
 
 const URL =
-  'https://randomuser.me/api/?results=10&inc=id,name,phone,picture&noinfo';
+  'https://randomuser.me/api/?results=10&inc=login,name,phone,picture&noinfo';
 
 const UsersContainer = () => {
-  const [usersData, setUsersData] = useState('');
-
-  const fetchUsers = () => {
-    fetch(URL)
-      .then((response) => response.json())
-      .then((data) => setUsersData(data));
-  };
+  const [usersData, setUsersData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetchUsers();
+    async function fetchData() {
+      const response = await fetch(URL);
+      const data = await response.json();
+      setUsersData(data.results);
+      setIsLoading(false);
+    }
+    fetchData();
   }, []);
 
-  console.log(usersData.results);
+  console.log(usersData);
 
   return (
     <div className="usersContainer">
       <div className="usersContainer__list">
         <UsersSearch />
-        {/* <UsersList users={usersData}></UsersList> */}
+        {isLoading ? (
+          <div>loading </div>
+        ) : (
+          <UsersList users={usersData}></UsersList>
+        )}
       </div>
       <User></User>
     </div>
