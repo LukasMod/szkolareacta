@@ -1,8 +1,22 @@
 .user {
-  min-height: 300px;
+  min-height: 242px;
   min-width: 500px;
   background-image: url('plant.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  &__image {
+    width: 180px;
+    height: auto;
+    margin: 1em 0;
+    border: 2px solid #009432;
+  }
+  &__info {
+    margin-left: 1.5em;
+    text-align: left;
+    line-height: 1.4em;
+  }
+  &__noUser {
+    margin: 2em;
+  }
 }

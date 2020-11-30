@@ -12,4 +12,8 @@
     display: flex;
     flex-direction: column;
   }
+  &__loading {
+    min-width: 300px;
+    min-height: calc(300px - 18px);
+  }
 }

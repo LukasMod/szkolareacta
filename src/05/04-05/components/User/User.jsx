@@ -2,14 +2,21 @@ import React from 'react';
 
 import './User.scss';
 
-const User = () => {
-  return (
+const User = ({ users, userId, isUserClicked }) => {
+  const userShow = users.find((item) => item.login.uuid === userId);
+
+  return isUserClicked ? (
     <div className="user">
-      <img src="" alt="" className="user__image" />
-      <div className="user__name">Name: Andrzej</div>
-      <div className="user__surname">Surname: Kowalski</div>
-      <div className="user__birthday">Date of birth: 10/11/1989</div>
-      <div className="user__salary">Salary: 1000 $</div>
+      <img className="user__image" src={userShow.picture.large} alt="" />
+      <div className="user__info">
+        <div className="user__name">Name: {userShow.name.first}</div>
+        <div className="user__surname">Surname: {userShow.name.last}</div>
+        <div className="user__phone">Phone: {userShow.phone}</div>
+      </div>
+    </div>
+  ) : (
+    <div className="user">
+      <div className="user__noUser">Pick User</div>
     </div>
   );
 };

@@ -10,6 +10,8 @@ const URL =
 const UsersContainer = () => {
   const [usersData, setUsersData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [userId, setUserId] = useState('');
+  const [isUserClicked, setIsUserClicked] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -21,19 +23,25 @@ const UsersContainer = () => {
     fetchData();
   }, []);
 
-  console.log(usersData);
+  const handleUserId = (id) => {
+    setUserId(id);
+    setIsUserClicked(true);
+  };
 
   return (
     <div className="usersContainer">
       <div className="usersContainer__list">
         <UsersSearch />
         {isLoading ? (
-          <div>loading </div>
+          <div className="usersContainer__loading">loading </div>
         ) : (
-          <UsersList users={usersData}></UsersList>
+          <UsersList users={usersData} handleClickId={handleUserId}></UsersList>
         )}
       </div>
-      <User></User>
+      <User
+        users={usersData}
+        userId={userId}
+        isUserClicked={isUserClicked}></User>
     </div>
   );
 };
