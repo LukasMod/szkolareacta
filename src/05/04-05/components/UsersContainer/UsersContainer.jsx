@@ -9,37 +9,71 @@ const URL =
 
 const UsersContainer = () => {
   const [usersData, setUsersData] = useState([]);
+  const [fetchedUsersData, setFetchedUsersData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [userId, setUserId] = useState('');
   const [isUserClicked, setIsUserClicked] = useState(false);
+  const [searchText, setSearchText] = useState('');
+
+  async function fetchData() {
+    const response = await fetch(URL);
+    const data = await response.json();
+    setUsersData(data.results);
+    setFetchedUsersData(data.results);
+    setIsLoading(false);
+  }
 
   useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(URL);
-      const data = await response.json();
-      setUsersData(data.results);
-      setIsLoading(false);
-    }
     fetchData();
   }, []);
 
-  const handleUserId = (id) => {
+  const handleSelectedUser = (id) => {
     setUserId(id);
     setIsUserClicked(true);
   };
 
+  const filterData = (text) => {
+    const filteredUserData = fetchedUsersData.filter((item) => {
+      const fullName = [item.name.first, item.name.last].join('');
+      return fullName.toLowerCase().includes(text);
+    });
+    setUsersData(filteredUserData);
+  };
+
+  const handleSearchText = (text) => {
+    setSearchText(text);
+    filterData(text);
+  };
+
+  const handleResetButton = () => {
+    setSearchText('');
+    setUsersData(fetchedUsersData);
+  };
+
+  useEffect(() => {
+    if (searchText.length === 0) {
+      setUsersData(fetchedUsersData);
+    }
+  }, [fetchedUsersData, searchText]);
+
   return (
     <div className="usersContainer">
       <div className="usersContainer__list">
-        <UsersSearch />
+        <UsersSearch
+          searchText={searchText}
+          handleSearchText={handleSearchText}
+          handleResetButton={handleResetButton}
+        />
         {isLoading ? (
           <div className="usersContainer__loading">loading </div>
         ) : (
-          <UsersList users={usersData} handleClickId={handleUserId}></UsersList>
+          <UsersList
+            users={usersData}
+            handleClickId={handleSelectedUser}></UsersList>
         )}
       </div>
       <User
-        users={usersData}
+        users={fetchedUsersData}
         userId={userId}
         isUserClicked={isUserClicked}></User>
     </div>
