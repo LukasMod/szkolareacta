@@ -1,0 +1,4 @@
+.MuiPaper-root:hover {
+  cursor: pointer;
+  border: 1px solid black;
+}

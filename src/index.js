@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from '05/04-05/App';
-// import App from 'sandbox/06/App';
+import App from '07/01-03/App';
+// import App from 'sandbox/074/App';
 
 // week 1:
 // 01 -leap years
