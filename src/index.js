@@ -39,6 +39,11 @@ import App from '07/01-03/App';
 // 05/03 -navMenu, router
 // 05/04-05 -usersList, fetch, router, useEffect, map, filter
 
+// ---
+
+// week 7:
+// 07/01-03 -userList with randomUser API, using UI-material, leaflet map, skeleton while fetching data
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
