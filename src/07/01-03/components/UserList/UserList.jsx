@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import User from './../User/User';
 
-const UserList = () => {
+const UserList = ({ getUser }) => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -12,9 +12,9 @@ const UserList = () => {
       .catch((error) => console.log(error));
   }, []);
 
-  console.log(users);
-
-  return users.map((user) => <User key={user.login.uuid} user={user} />);
+  return users.map((user) => (
+    <User key={user.login.uuid} user={user} getClickedUser={getUser} />
+  ));
 };
 
 export default UserList;
