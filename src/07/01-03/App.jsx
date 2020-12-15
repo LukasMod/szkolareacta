@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  //   Redirect,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import UserList from './components/UserList/UserList';
 import UserDetails from './components/UserDetails/UserDetails';
@@ -17,8 +12,6 @@ const App = () => {
 
   const getUserFromUserList = (userFromUserList) => {
     setUser(userFromUserList);
-    // console.log(userFromUserList);
-    // console.log(user);
   };
 
   return (
@@ -29,10 +22,6 @@ const App = () => {
           <Route exact path="/users/:userId">
             <UserDetails user={user} />
           </Route>
-          {/* <Route path="/users">
-            <UserList />
-          </Route> */}
-          {/* <Redirect to="/users" /> */}
           <UserList getUser={getUserFromUserList} />
         </Switch>
       </div>

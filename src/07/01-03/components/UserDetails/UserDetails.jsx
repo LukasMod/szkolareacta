@@ -1,7 +1,11 @@
 import React from 'react';
+
+import { Link, Redirect } from 'react-router-dom';
+
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -23,6 +27,13 @@ const useStyles = makeStyles({
 
 const UserDetails = ({ user }) => {
   const classes = useStyles();
+  if (!user) {
+    return <Redirect to="/users" />;
+  }
+  const position = [
+    Number(user.location.coordinates.latitude),
+    Number(user.location.coordinates.longitude),
+  ];
 
   return (
     <Card className={classes.root}>
@@ -34,32 +45,48 @@ const UserDetails = ({ user }) => {
       />
       <CardContent>
         <Typography variant="body1" align="left">
-          Name: {user.name.first}
+          <b>Name:</b> {user.name.first}
         </Typography>
         <Typography variant="body1" align="left">
-          Surname: {user.name.last}
+          <b>Surname:</b> {user.name.last}
         </Typography>
         <Typography variant="body1" align="left">
-          Email: {user.email}
+          <b>Email:</b> {user.email}
         </Typography>
         <Typography variant="body1" align="left">
-          Phone: {user.phone}
+          <b>Phone:</b> {user.phone}
         </Typography>
         <Typography variant="body1" align="left">
-          Country: {user.location.country}
+          <b>Country:</b> {user.location.country}
         </Typography>
         <Typography variant="body1" align="left">
-          State: {user.location.state}
+          <b>State:</b> {user.location.state}
         </Typography>
         <Typography variant="body1" align="left">
-          City: {user.location.city}
+          <b>City:</b> {user.location.city}
         </Typography>
         <Typography variant="body1" align="left">
-          Street: {user.location.street.name}, {user.location.street.number}
+          <b>Street:</b> {user.location.street.name},{' '}
+          {user.location.street.number}
         </Typography>
       </CardContent>
+      <MapContainer
+        style={{ width: 410, height: 205 }}
+        center={position}
+        zoom={13}
+        scrollWheelZoom={false}>
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={position}>
+          <Popup>
+            {user.name.first} {user.name.last}
+          </Popup>
+        </Marker>
+      </MapContainer>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" component={Link} to={'/users'}>
           Back to List
         </Button>
       </CardActions>

@@ -1,13 +1,14 @@
 import React from 'react';
+
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
-
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
   base: {
@@ -40,7 +41,6 @@ const User = ({ user, getClickedUser }) => {
 
   const handleClick = () => {
     getClickedUser(user);
-    // console.log(user);
   };
 
   return (
