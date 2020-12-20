@@ -1,4 +1,3 @@
-import { blue } from '@material-ui/core/colors';
 import { sum } from './App';
 
 describe('Function sum test', () => {
