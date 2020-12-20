@@ -1,6 +1,9 @@
 #local settings
 settings.json
 
+#eslint
+.eslintcache
+
 #boilerplate
 /starter
 /src/sandbox
@@ -12,6 +15,7 @@ settings.json
 
 # testing
 /coverage
+/cypress/integration/examples
 
 # production
 /build
