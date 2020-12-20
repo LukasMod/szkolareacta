@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from '08/01/App';
+import App from '08/02/App';
 // import App from 'sandbox/081/App';
 
 // week 1:
@@ -37,6 +37,7 @@ import App from '08/01/App';
 
 // week 8:
 // 08/01 - unit tests with Jest
+// 08/02 - testing counter with input field
 
 ReactDOM.render(
   <React.StrictMode>
