@@ -16,7 +16,7 @@ settings.json
 # testing
 /coverage
 /cypress/integration/examples
-
+debug.log
 # production
 /build
 
