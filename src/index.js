@@ -38,7 +38,7 @@ import App from '08/04/App';
 // week 8:
 // 08/01 - unit tests with Jest
 // 08/02 - testing counter with enzyme
-// 08/03/01-03 - homework 07/01-03 with added tests
+// 08/03/01-03 - homework 07/01-03 with added tests  <<< unfinished
 // 08/04 - E2E testing counter with cypress
 
 ReactDOM.render(
