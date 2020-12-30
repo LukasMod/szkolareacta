@@ -37,11 +37,16 @@ const UserList = ({ getUser }) => {
   }
 
   return (
-    <div>
+    <div className="userList">
       {isLoading
         ? skeletonList
         : users.map((user) => (
-            <User key={user.login.uuid} user={user} getClickedUser={getUser} />
+            <User
+              key={user.login.uuid}
+              user={user}
+              getClickedUser={getUser}
+              className="userCard"
+            />
           ))}
     </div>
   );

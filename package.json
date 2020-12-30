@@ -62,9 +62,5 @@
     "eslint": "^7.11.0",
     "eslint-config-prettier": "^6.14.0",
     "eslint-plugin-cypress": "^2.11.2"
-  },
-  "jest": {
-    "testEnvironment": "enzyme",
-    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js"
   }
 }
