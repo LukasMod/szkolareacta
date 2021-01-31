@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchUsers, fetchUser, resetUsers } from './../../actions/actions';
 import {
   Container,
   Box,
@@ -23,19 +25,33 @@ const Home = () => {
   }));
   const { button, buttonsWrapper, root } = useStyles();
 
+  const dispatch = useDispatch();
+
   return (
     <Container maxWidth="md" className={root}>
       <Typography component="h3" variant="h3">
         Home
       </Typography>
       <Box className={buttonsWrapper}>
-        <Button variant="contained" color="primary" className={button}>
+        <Button
+          variant="contained"
+          color="primary"
+          className={button}
+          onClick={() => dispatch(fetchUsers())}>
           Load
         </Button>
-        <Button variant="contained" color="primary" className={button}>
+        <Button
+          variant="contained"
+          color="primary"
+          className={button}
+          onClick={() => dispatch(resetUsers())}>
           Reset
         </Button>
-        <Button variant="contained" color="primary" className={button}>
+        <Button
+          variant="contained"
+          color="primary"
+          className={button}
+          onClick={() => dispatch(fetchUser())}>
           Add
         </Button>
       </Box>

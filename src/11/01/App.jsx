@@ -1,15 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store/store';
 import Header from './containers/Header/Header';
 import Content from './containers/Content/Content';
 
 const App = () => {
   return (
     <div className="App">
-      <Router>
-        <Header />
-        <Content />
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <Header />
+          <Content />
+        </Router>
+      </Provider>
     </div>
   );
 };
