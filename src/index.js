@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from '08/04/App';
+import App from '11/01/App';
 // import App from 'sandbox/11/App';
 
 // week 1:
@@ -34,12 +34,14 @@ import App from '08/04/App';
 // week 7:
 // 07/01-03 -userList with randomUser API, using UI-material, leaflet map, skeleton while fetching data
 // ---
-
 // week 8:
 // 08/01 - unit tests with Jest
 // 08/02 - testing counter with enzyme
 // 08/03/01-03 - homework 07/01-03 with added tests  <<< unfinished
 // 08/04 - E2E testing counter with cypress
+// ---
+// week 11:
+// 11/01 - redux, home, users fetch from randomuser.me
 
 ReactDOM.render(
   <React.StrictMode>
