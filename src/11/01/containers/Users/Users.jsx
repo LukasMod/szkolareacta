@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Box,
-  List,
-  ListItem,
-  ListItemText,
   Typography,
   makeStyles,
+  CircularProgress,
 } from '@material-ui/core';
-import { useSelector } from 'react-redux';
+import { DataGrid } from '@material-ui/data-grid';
+
+import { fetchUsers } from './../../actions/actions';
+
+import { useSelector, useDispatch } from 'react-redux';
 
 const Users = () => {
   const users = useSelector((state) => state.users.users);
   const isLoading = useSelector((state) => state.users.isLoading);
   const isError = useSelector((state) => state.users.isError);
+
+  const dispatch = useDispatch();
 
   const useStyles = makeStyles(() => ({
     root: {
@@ -24,26 +28,61 @@ const Users = () => {
       textAlign: 'center',
     },
   }));
-  const { root, listItemText } = useStyles();
+  const { root } = useStyles();
+
+  useEffect(() => {
+    if (users.length === 0) {
+      dispatch(fetchUsers());
+    }
+  }, [users, dispatch]);
+
+  const columns = [
+    { field: 'id', headerName: 'ID', width: 70 },
+    { field: 'firstName', headerName: 'First name', width: 130 },
+    { field: 'lastName', headerName: 'Last name', width: 130 },
+    {
+      field: 'age',
+      headerName: 'Age',
+      type: 'number',
+      width: 90,
+    },
+    {
+      field: 'fullName',
+      headerName: 'Full name',
+      description: 'This column has a value getter and is not sortable.',
+      sortable: false,
+      width: 160,
+      valueGetter: (params) =>
+        `${params.getValue('firstName') || ''} ${
+          params.getValue('lastName') || ''
+        }`,
+    },
+  ];
+
+  const rows = users.map((item) => ({
+    id: item.login.uuid,
+    lastName: item.name.last,
+    firstName: item.name.first,
+    age: item.dob.age,
+  }));
 
   return (
     <Box className={root}>
+      {isLoading && <CircularProgress />}
       <Typography component="h3" variant="h3">
         Users
       </Typography>
-      <List component="nav" aria-label="main mailbox folders">
-        {users &&
-          users.map((item) => {
-            return (
-              <ListItem key={item.login.uuid}>
-                <ListItemText
-                  primary={item.name.first}
-                  className={listItemText}
-                />
-              </ListItem>
-            );
-          })}
-      </List>
+
+      <div style={{ height: 800, width: '100%' }}>
+        {users && (
+          <DataGrid
+            rows={rows}
+            columns={columns}
+            pageSize={10}
+            checkboxSelection
+          />
+        )}
+      </div>
     </Box>
   );
 };

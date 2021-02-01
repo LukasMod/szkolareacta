@@ -6,6 +6,7 @@ import Header from './containers/Header/Header';
 import Content from './containers/Content/Content';
 
 const App = () => {
+  store.subscribe(() => console.log('REDUX STATE', store.getState()));
   return (
     <div className="App">
       <Provider store={store}>

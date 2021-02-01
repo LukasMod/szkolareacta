@@ -16,8 +16,8 @@ const usersReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         users: action.payload,
-        isLoading: true,
-        isError: true,
+        isLoading: false,
+        isError: false,
       };
     case RESET:
       return { ...state, users: [], isLoading: false, isError: false };
