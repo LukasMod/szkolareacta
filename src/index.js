@@ -41,7 +41,12 @@ import App from '11/01/App';
 // 08/04 - E2E testing counter with cypress
 // ---
 // week 11:
-// 11/01 - redux, home, users fetch from randomuser.me
+// 11/01 - redux, home, users fetch from Mock Service Worker
+
+if (process.env.NODE_ENV === 'development') {
+  const { worker } = require('./11/01/mocks/browser');
+  worker.start();
+}
 
 ReactDOM.render(
   <React.StrictMode>

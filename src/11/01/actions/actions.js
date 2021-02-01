@@ -4,10 +4,10 @@ export const LOAD = 'users/LOAD';
 export const RESET = 'users/RESET';
 export const ADD = 'users/ADD';
 
-export const fetchUsers = (USERS_NUMBER = 10) => {
+export const fetchUsers = () => {
   return function (dispatch) {
     dispatch(requestUsers());
-    fetch(`https://randomuser.me/api/?results=${USERS_NUMBER}`)
+    fetch('/users')
       .then((response) => response.json())
       .then((data) => dispatch(loadUsers(data.results)))
       .catch((error) => dispatch(errorUsers()));
@@ -17,7 +17,7 @@ export const fetchUsers = (USERS_NUMBER = 10) => {
 export const fetchUser = () => {
   return function (dispatch) {
     dispatch(requestUsers());
-    fetch('https://randomuser.me/api/?results=1')
+    fetch('/user')
       .then((response) => response.json())
       .then((data) => dispatch(addUsers(data.results)))
       .catch((error) => dispatch(errorUsers()));
