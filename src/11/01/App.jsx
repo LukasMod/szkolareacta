@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { SnackbarProvider } from 'notistack';
 import store from './store/store';
 import Header from './containers/Header/Header';
 import Content from './containers/Content/Content';
@@ -11,8 +12,10 @@ const App = () => {
     <div className="App">
       <Provider store={store}>
         <Router>
-          <Header />
-          <Content />
+          <SnackbarProvider maxSnack={3}>
+            <Header />
+            <Content />
+          </SnackbarProvider>
         </Router>
       </Provider>
     </div>
