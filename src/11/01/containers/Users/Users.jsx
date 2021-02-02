@@ -68,13 +68,14 @@ const Users = () => {
 
   return (
     <Box className={root}>
-      {isLoading && <CircularProgress />}
       <Typography component="h3" variant="h3">
         Users
       </Typography>
 
       <div style={{ height: 800, width: '100%' }}>
-        {users && (
+        {isLoading ? (
+          <CircularProgress />
+        ) : (
           <DataGrid
             rows={rows}
             columns={columns}

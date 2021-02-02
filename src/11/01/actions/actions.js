@@ -9,7 +9,11 @@ export const fetchUsers = () => {
     dispatch(requestUsers());
     fetch('/users')
       .then((response) => response.json())
-      .then((data) => dispatch(loadUsers(data.results)))
+      .then((data) =>
+        setTimeout(() => {
+          dispatch(loadUsers(data.results));
+        }, 2000)
+      )
       .catch((error) => dispatch(errorUsers()));
   };
 };
