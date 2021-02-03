@@ -60,6 +60,12 @@ const Header = () => {
                 primaryTypographyProps={{ variant: 'h6' }}
               />
             </ListItemLink>
+            <ListItemLink to="/form" className={listItem}>
+              <ListItemText
+                primary="Contact"
+                primaryTypographyProps={{ variant: 'h6' }}
+              />
+            </ListItemLink>
           </List>
         </Toolbar>
       </AppBar>
