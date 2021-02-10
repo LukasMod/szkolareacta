@@ -30,6 +30,7 @@ const Home = () => {
       display: 'flex',
       flexDirection: 'row',
       textAlign: 'center',
+      justifyContent: 'center',
       alignItems: 'center',
       [theme.breakpoints.down(425)]: {
         minWidth: '100%',
