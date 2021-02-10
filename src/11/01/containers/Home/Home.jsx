@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Notifier from './../../components/Notifier/Notifier';
 import {
   fetchUsers,
@@ -16,21 +16,39 @@ import {
   Typography,
 } from '@material-ui/core';
 
+import ContactTable from './../../components/ContactTable/ContactTable';
+
 const Home = () => {
-  const useStyles = makeStyles(() => ({
+  const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
       flexDirection: 'column',
       textAlign: 'center',
     },
     buttonsWrapper: {
-      paddingTop: '20px',
+      padding: '20px 0',
+      display: 'flex',
+      flexDirection: 'row',
+      textAlign: 'center',
+      alignItems: 'center',
+      [theme.breakpoints.down(425)]: {
+        minWidth: '100%',
+        flexDirection: 'column',
+      },
     },
     button: {
-      margin: '0 2em',
+      margin: '0.5em 2em',
+      [theme.breakpoints.down(425)]: {
+        width: '150px',
+      },
+    },
+    tableWrapper: {
+      padding: '20px 0',
     },
   }));
-  const { button, buttonsWrapper, root } = useStyles();
+  const { button, buttonsWrapper, root, tableWrapper } = useStyles();
+
+  const contacts = useSelector((state) => state.contact.contacts);
 
   const dispatch = useDispatch();
   const enqueueSnackbar = (...args) => dispatch(enqueueSnackbarAction(...args));
@@ -106,6 +124,12 @@ const Home = () => {
           onClick={() => handleClickAdd()}>
           Add
         </Button>
+      </Box>
+      <Typography component="h4" variant="h4">
+        Table with data from Contact Form
+      </Typography>
+      <Box className={tableWrapper}>
+        <ContactTable data={contacts} />
       </Box>
     </Container>
   );
