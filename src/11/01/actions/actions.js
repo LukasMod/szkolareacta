@@ -1,12 +1,16 @@
-export const REQUEST = 'users/REQUEST';
-export const ERROR = 'users/ERROR';
-export const LOAD = 'users/LOAD';
-export const RESET = 'users/RESET';
-export const ADD = 'users/ADD';
+export const REQUEST_USERS = 'users/REQUEST';
+export const ERROR_USERS = 'users/ERROR';
+export const LOAD_USERS = 'users/LOAD';
+export const RESET_USERS = 'users/RESET';
+export const ADD_USER = 'users/ADD';
 
 export const ENQUEUE_SNACKBAR = 'messages/ENQUEUE_SNACKBAR';
 export const CLOSE_SNACKBAR = 'messages/CLOSE_SNACKBAR';
 export const REMOVE_SNACKBAR = 'messages/REMOVE_SNACKBAR';
+
+export const POST_CONTACT = 'contact/POST_CONTACT';
+export const ADD_CONTACT = 'contact/ADD_CONTACT';
+export const ERROR_CONTACT = 'contact/ERROR_CONTACT';
 
 export const fetchUsers = () => {
   return function (dispatch) {
@@ -32,25 +36,42 @@ export const fetchUser = () => {
   };
 };
 
+export const postAndFetchContact = (data) => {
+  return function (dispatch) {
+    dispatch(addContact());
+    fetch('/contact', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: data.username,
+        email: data.email,
+        phone: data.phone,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => dispatch(postContact(data.results)))
+      .catch((error) => dispatch(errorContact()));
+  };
+};
+
 export const requestUsers = () => ({
-  type: REQUEST,
+  type: REQUEST_USERS,
 });
 
 export const errorUsers = () => ({
-  type: ERROR,
+  type: ERROR_USERS,
 });
 
 export const loadUsers = (data) => ({
-  type: LOAD,
+  type: LOAD_USERS,
   payload: data,
 });
 
 export const resetUsers = () => ({
-  type: RESET,
+  type: RESET_USERS,
 });
 
 export const addUsers = (data) => ({
-  type: ADD,
+  type: ADD_USER,
   payload: data,
 });
 
@@ -75,4 +96,17 @@ export const closeSnackbar = (key) => ({
 export const removeSnackbar = (key) => ({
   type: REMOVE_SNACKBAR,
   key,
+});
+
+export const postContact = (data) => ({
+  type: POST_CONTACT,
+  payload: data,
+});
+
+export const addContact = () => ({
+  type: ADD_CONTACT,
+});
+
+export const errorContact = () => ({
+  type: ERROR_CONTACT,
 });

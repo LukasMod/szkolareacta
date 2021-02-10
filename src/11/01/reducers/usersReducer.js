@@ -1,4 +1,10 @@
-import { REQUEST, ERROR, LOAD, RESET, ADD } from './../actions/actions';
+import {
+  REQUEST_USERS,
+  ERROR_USERS,
+  LOAD_USERS,
+  RESET_USERS,
+  ADD_USER,
+} from './../actions/actions';
 
 const INITIAL_STATE = {
   users: [],
@@ -8,20 +14,20 @@ const INITIAL_STATE = {
 
 const usersReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case REQUEST:
+    case REQUEST_USERS:
       return { ...state, isLoading: true, isError: false };
-    case ERROR:
+    case ERROR_USERS:
       return { ...state, isLoading: false, isError: true };
-    case LOAD:
+    case LOAD_USERS:
       return {
         ...state,
         users: action.payload,
         isLoading: false,
         isError: false,
       };
-    case RESET:
+    case RESET_USERS:
       return { ...state, users: [], isLoading: false, isError: false };
-    case ADD:
+    case ADD_USER:
       return {
         ...state,
         users: state.users.concat(action.payload),

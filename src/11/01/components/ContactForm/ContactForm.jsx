@@ -3,6 +3,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import {
   postAndFetchContact,
+  errorContact,
   enqueueSnackbar as enqueueSnackbarAction,
   closeSnackbar as closeSnackbarAction,
 } from './../../actions/actions';
@@ -33,7 +34,7 @@ const ContactForm = () => {
     inputsWrapper: {
       display: 'flex',
       flexDirection: 'column',
-      minWidth: '300px',
+      width: '300px',
     },
     input: {
       marginBottom: '.5em',
@@ -53,12 +54,11 @@ const ContactForm = () => {
   );
 
   const onSubmit = (data) => {
-    console.log(data);
     postContact(data);
   };
 
   useEffect(() => {
-    if (isSubmitSuccessful) {
+    if (isSubmitSuccessful === true) {
       enqueueSnackbar({
         message: 'Contact added.',
         options: {
@@ -69,12 +69,16 @@ const ContactForm = () => {
           ),
         },
       });
-      reset();
-    }
-  }, [isSubmitSuccessful, reset, closeSnackbar, enqueueSnackbar]);
-
-  useEffect(() => {
-    if (fieldsErrors.username || fieldsErrors.email || fieldsErrors.phone) {
+      reset({
+        username: '',
+        email: '',
+        phone: '',
+      });
+    } else if (
+      isSubmitSuccessful === false &&
+      (fieldsErrors.username || fieldsErrors.email || fieldsErrors.phone)
+    ) {
+      dispatch(errorContact());
       enqueueSnackbar({
         message: 'Correct form.',
         options: {
@@ -85,8 +89,17 @@ const ContactForm = () => {
           ),
         },
       });
+    } else {
+      return;
     }
-  }, [fieldsErrors, closeSnackbar, enqueueSnackbar]);
+  }, [
+    isSubmitSuccessful,
+    fieldsErrors,
+    reset,
+    closeSnackbar,
+    enqueueSnackbar,
+    dispatch,
+  ]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={root} noValidate>

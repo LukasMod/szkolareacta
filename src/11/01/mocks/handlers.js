@@ -10,12 +10,12 @@ export const handlers = [
       ctx.json({
         results: [
           {
-            email: { email },
+            email,
             login: {
               uuid: uuidv4(),
-              username: { username },
+              username,
             },
-            phone: { phone },
+            phone,
           },
         ],
       })
@@ -40,6 +40,9 @@ export const handlers = [
             login: {
               uuid: uuidv4(),
               username: 'brownpeacock521',
+            },
+            dob: {
+              age: 20,
             },
             phone: '(256)-216-3684',
             cell: '(839)-498-5033',

@@ -13,25 +13,29 @@ import {
 } from '@material-ui/core';
 
 const Header = () => {
-  const useStyles = makeStyles(() => ({
+  const useStyles = makeStyles((theme) => ({
     header: {
       backgroundColor: '#A3CB38',
     },
-    logo: {
+    toolbar: {
       display: 'flex',
-      alignItems: 'center',
+      [theme.breakpoints.down(425)]: {
+        flexDirection: 'column',
+      },
     },
     list: {
       display: 'flex',
       justifyContent: 'space-between',
-      minWidth: '300px',
+      [theme.breakpoints.down(425)]: {
+        flexDirection: 'column',
+      },
     },
     listItem: {
       textAlign: 'center',
     },
   }));
 
-  const { header, logo, list, listItem } = useStyles();
+  const { header, list, listItem, toolbar } = useStyles();
 
   function ListItemLink(props) {
     return <ListItem button component={Link} {...props} />;
@@ -40,14 +44,11 @@ const Header = () => {
   return (
     <Box component="header" color="primary.main">
       <AppBar position="static" className={header}>
-        <Toolbar>
-          <List
-            component="nav"
-            aria-label="main mailbox folders"
-            className={list}>
-            <Typography component="h1" variant="h4" className={logo}>
-              11/01
-            </Typography>
+        <Toolbar className={toolbar}>
+          <Typography component="h1" variant="h4">
+            11/01
+          </Typography>
+          <List component="nav" className={list}>
             <ListItemLink to="/" className={listItem}>
               <ListItemText
                 primary="Home"

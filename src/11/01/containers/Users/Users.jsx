@@ -14,7 +14,6 @@ import { useSelector, useDispatch } from 'react-redux';
 const Users = () => {
   const users = useSelector((state) => state.users.users);
   const isLoading = useSelector((state) => state.users.isLoading);
-  const isError = useSelector((state) => state.users.isError);
 
   const dispatch = useDispatch();
 
