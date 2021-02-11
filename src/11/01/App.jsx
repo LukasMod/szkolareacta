@@ -11,8 +11,6 @@ import Content from './containers/Content/Content';
 const persistor = persistStore(store);
 
 const App = () => {
-  store.subscribe(() => console.log('REDUX STATE', store.getState()));
-
   return (
     <div className="App">
       <Provider store={store}>
