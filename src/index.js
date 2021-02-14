@@ -41,7 +41,7 @@ import App from '11/01/App';
 // 08/04 - E2E testing counter with cypress
 // ---
 // week 11:
-// 11/01 - Redux, Router, Mock Service Worker, react-hook-form, material-UI, Notifier
+// 11/01 - Redux (Thunk, Saga, Persist), Router, Mock Service Worker, react-hook-form, material-UI, Notifier
 
 if (process.env.NODE_ENV === 'development') {
   const { worker } = require('./11/01/mocks/browser');
