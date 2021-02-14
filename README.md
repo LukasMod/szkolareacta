@@ -59,7 +59,7 @@ week 8:
 
 week 11:
 
-- 11/01 - Redux, Router, Mock Service Worker, react-hook-form, material-UI, Notifier
+- 11/01 - Redux (Thunk, Saga, Persist), Router, Mock Service Worker, react-hook-form, material-UI, Notifier
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

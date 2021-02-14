@@ -1,10 +1,11 @@
 import {
   REQUEST_USERS,
+  REQUEST_USER,
   ERROR_USERS,
   LOAD_USERS,
   RESET_USERS,
   ADD_USER,
-} from './../actions/actions';
+} from './../actions/consts';
 
 const INITIAL_STATE = {
   users: [],
@@ -15,6 +16,8 @@ const INITIAL_STATE = {
 const usersReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case REQUEST_USERS:
+      return { ...state, isLoading: true, isError: false };
+    case REQUEST_USER:
       return { ...state, isLoading: true, isError: false };
     case ERROR_USERS:
       return { ...state, isLoading: false, isError: true };

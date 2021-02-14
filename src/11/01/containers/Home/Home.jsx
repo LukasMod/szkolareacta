@@ -2,12 +2,14 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Notifier from './../../components/Notifier/Notifier';
 import {
-  fetchUsers,
-  fetchUser,
-  resetUsers,
-  enqueueSnackbar as enqueueSnackbarAction,
   closeSnackbar as closeSnackbarAction,
-} from './../../actions/actions';
+  enqueueSnackbar as enqueueSnackbarAction,
+} from './../../actions/messagesActions';
+import {
+  requestUsers,
+  requestUser,
+  resetUsers,
+} from './../../actions/usersActions';
 import {
   Container,
   Box,
@@ -66,7 +68,7 @@ const Home = () => {
         ),
       },
     });
-    return dispatch(fetchUsers());
+    return dispatch(requestUsers());
   };
 
   const handleClickReset = () => {
@@ -94,7 +96,7 @@ const Home = () => {
         ),
       },
     });
-    return dispatch(fetchUser());
+    return dispatch(requestUser());
   };
 
   return (

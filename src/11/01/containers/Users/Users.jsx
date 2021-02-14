@@ -6,9 +6,7 @@ import {
   CircularProgress,
 } from '@material-ui/core';
 import { DataGrid } from '@material-ui/data-grid';
-
-import { fetchUsers } from './../../actions/actions';
-
+import { requestUsers } from './../../actions/usersActions';
 import { useSelector, useDispatch } from 'react-redux';
 
 const Users = () => {
@@ -31,10 +29,9 @@ const Users = () => {
 
   useEffect(() => {
     if (users.length === 0) {
-      dispatch(fetchUsers());
+      dispatch(requestUsers());
     }
   }, [users, dispatch]);
-
   const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
     { field: 'firstName', headerName: 'First name', width: 130 },

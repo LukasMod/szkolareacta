@@ -2,7 +2,7 @@ import {
   ENQUEUE_SNACKBAR,
   CLOSE_SNACKBAR,
   REMOVE_SNACKBAR,
-} from './../actions/actions';
+} from './../actions/consts';
 
 const INITIAL_STATE = {
   notifications: [],

@@ -1,4 +1,4 @@
-import { ADD_CONTACT, POST_CONTACT, ERROR_CONTACT } from './../actions/actions';
+import { ADD_CONTACT, POST_CONTACT, ERROR_CONTACT } from './../actions/consts';
 
 const INITIAL_STATE = {
   contacts: [],

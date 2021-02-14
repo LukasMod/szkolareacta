@@ -2,11 +2,13 @@ import React, { useCallback, useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import {
-  postAndFetchContact,
-  errorContact,
   enqueueSnackbar as enqueueSnackbarAction,
   closeSnackbar as closeSnackbarAction,
-} from './../../actions/actions';
+} from './../../actions/messagesActions';
+import {
+  postAndFetchContact,
+  errorContact,
+} from './../../actions/contactActions';
 import { Box, Button, makeStyles, TextField } from '@material-ui/core';
 
 const ContactForm = () => {
